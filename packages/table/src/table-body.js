@@ -42,14 +42,14 @@ export default {
             this.columns.map(column => <col name={ column.id } key={column.id} />)
           }
         </colgroup>
-        <tbody>
+        <transition-group name="el-fade-in" tag="tbody">
           {
             data.reduce((acc, row) => {
               return acc.concat(this.wrappedRowRender(row, acc.length));
             }, [])
           }
-          <el-tooltip effect={ this.table.tooltipEffect } placement="top" ref="tooltip" content={ this.tooltipContent }></el-tooltip>
-        </tbody>
+        </transition-group>
+        <el-tooltip effect={ this.table.tooltipEffect } placement="top" ref="tooltip" content={ this.tooltipContent }></el-tooltip>
       </table>
     );
   },
