@@ -410,6 +410,7 @@ export default {
           </tr>]];
       } else if (Object.keys(treeData).length) {
         assertRowKey();
+        
         // TreeTable 时，rowKey 必须由用户设定，不使用 getKeyOfRow 计算
         // 在调用 rowRender 函数时，仍然会计算 rowKey，不太好的操作
         const key = getRowIdentity(row, rowKey);
